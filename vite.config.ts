@@ -9,6 +9,8 @@ export default defineConfig({
       client: { input: ['/app/client.ts', '/app/style.css'] }
     }),
     tailwindcss(),
-    build()
+    build({
+      staticDir: '.vercel/output/static'
+    })
   ]
 })
