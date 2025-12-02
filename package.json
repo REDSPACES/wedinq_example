@@ -1,20 +1,24 @@
 {
-  "name": "wedinq",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build --mode client && vite build && mkdir -p .vercel/output/static/static && cp -r dist/static/* .vercel/output/static/static/"
-  },
-  "private": true,
-  "dependencies": {
-    "hono": "^4.10.7",
-    "honox": "^0.1.52"
-  },
-  "devDependencies": {
-    "@hono/vite-build": "^1.8.0",
-    "@hono/vite-dev-server": "^0.23.0",
-    "@tailwindcss/vite": "^4.0.9",
-    "tailwindcss": "^4.0.9",
-    "vite": "^6.3.5"
-  }
+	"name": "wedinq",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build --mode client && vite build && mkdir -p .vercel/output/static/static && cp -r dist/static/* .vercel/output/static/static/",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write ."
+	},
+	"private": true,
+	"dependencies": {
+		"hono": "^4.10.7",
+		"honox": "^0.1.52"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.8",
+		"@hono/vite-build": "^1.8.0",
+		"@hono/vite-dev-server": "^0.23.0",
+		"@tailwindcss/vite": "^4.0.9",
+		"tailwindcss": "^4.0.9",
+		"vite": "^6.3.5"
+	}
 }
