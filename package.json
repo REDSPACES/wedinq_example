@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode client && vite build && cp -r dist/static/* .vercel/output/static/"
+    "build": "vite build --mode client && vite build && mkdir -p .vercel/output/static/static && cp -r dist/static/* .vercel/output/static/static/"
   },
   "private": true,
   "dependencies": {
