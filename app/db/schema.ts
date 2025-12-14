@@ -1,14 +1,14 @@
+import { sql } from "drizzle-orm";
 import {
+	boolean,
+	check,
+	integer,
 	pgTable,
-	uuid,
 	text,
 	timestamp,
-	integer,
-	boolean,
 	unique,
-	check,
+	uuid,
 } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
 
 // 管理者テーブル
 export const admins = pgTable("admins", {
@@ -106,7 +106,9 @@ export const participants = pgTable(
 			.defaultNow()
 			.notNull(),
 	},
-	(table) => [unique("participant_unique").on(table.sessionId, table.identifierCode)],
+	(table) => [
+		unique("participant_unique").on(table.sessionId, table.identifierCode),
+	],
 );
 
 // 回答テーブル

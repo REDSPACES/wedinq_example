@@ -1,11 +1,11 @@
 import { relations } from "drizzle-orm";
 import {
 	admins,
+	answers,
+	participants,
 	quizSets,
 	quizzes,
 	sessions,
-	participants,
-	answers,
 } from "./schema";
 
 // 管理者のリレーション
@@ -47,13 +47,16 @@ export const sessionsRelations = relations(sessions, ({ one, many }) => ({
 }));
 
 // 参加者のリレーション
-export const participantsRelations = relations(participants, ({ one, many }) => ({
-	session: one(sessions, {
-		fields: [participants.sessionId],
-		references: [sessions.id],
+export const participantsRelations = relations(
+	participants,
+	({ one, many }) => ({
+		session: one(sessions, {
+			fields: [participants.sessionId],
+			references: [sessions.id],
+		}),
+		answers: many(answers),
 	}),
-	answers: many(answers),
-}));
+);
 
 // 回答のリレーション
 export const answersRelations = relations(answers, ({ one }) => ({
